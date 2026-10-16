@@ -1,8 +1,8 @@
 /* ========================================================
-   Authentication Script (admin / Marketing@2026)
+   Authentication Script
    ======================================================== */
 
-// SHA-256 generator helper
+// SHA-256 helper
 async function sha(s) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
   return Array.from(new Uint8Array(buf))
@@ -10,7 +10,7 @@ async function sha(s) {
     .join("");
 }
 
-// Authorized credentials list
+// Allowed user entries
 const USERS = [
   "admin:Marketing@2026",
   "6f47aa2810a08e0dae95454fae896434458f2d5e7774ae72bb83fc7ea9d46083"
@@ -27,34 +27,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const outBtn = document.getElementById("out");
   const box = document.querySelector(".box");
 
-  // Show/Hide password toggle
+  // Show / Hide password toggle
   if (eyeBtn && pInput) {
     eyeBtn.addEventListener("click", () => {
-      if (pInput.type === "password") {
-        pInput.type = "text";
+      const isHidden = pInput.classList.contains("pass-dot") && !pInput.classList.contains("show-plain");
+      if (isHidden) {
+        pInput.classList.add("show-plain");
         eyeBtn.textContent = "Hide";
       } else {
-        pInput.type = "password";
+        pInput.classList.remove("show-plain");
         eyeBtn.textContent = "Show";
       }
       pInput.focus();
     });
   }
 
-  // Auto-login if session exists
+  // Restore session if already logged in
   if (sessionStorage.getItem("auth") === "1") {
     loginSection.hidden = true;
     appSection.hidden = false;
   }
 
-  // Login handler
+  // Login execution
   async function attemptLogin() {
     errText.textContent = "";
     const u = uInput.value.trim().toLowerCase();
     const p = pInput.value;
 
     if (!u || !p) {
-      errText.textContent = "Please enter username and password.";
+      errText.textContent = "Please enter both username and password.";
       shake();
       return;
     }
@@ -65,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const combo = `${u}:${p}`;
       const hashed = await sha(combo);
 
-      // Check default credentials or hash list
       const isValid =
         (u === "admin" && p === "Marketing@2026") ||
         USERS.includes(combo) ||
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
           errText.textContent = "Wrong username or password.";
           shake();
         }
-      }, 350);
+      }, 300);
     } catch (e) {
       goBtn.classList.remove("load");
       errText.textContent = "Login error. Please try again.";
@@ -98,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Attach login button & Enter key press
   if (goBtn) goBtn.addEventListener("click", attemptLogin);
 
   [uInput, pInput].forEach((input) => {
@@ -109,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Sign out button
+  // Sign out
   if (outBtn) {
     outBtn.addEventListener("click", () => {
       sessionStorage.removeItem("auth");
