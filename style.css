@@ -59,9 +59,12 @@ button:focus-visible,a:focus-visible{outline:2px solid #4d86ff;outline-offset:2p
 @keyframes rot{to{transform:rotate(360deg)}}@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 @media(max-width:860px){.split{grid-template-columns:1fr}.art{min-height:240px}.art h2{font-size:24px}.art .copy{padding-bottom:24px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important}}
+/* Fix password visibility and contrast */
 input[type="password"] {
-  font-family: caption, sans-serif !important;
-  color: var(--ink) !important;
-  -webkit-text-fill-color: var(--ink) !important;
+  background-color: #0b1536 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff !important;
+  font-family: system-ui, sans-serif !important;
   letter-spacing: 2px;
 }
