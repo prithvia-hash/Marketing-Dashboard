@@ -1,8 +1,8 @@
 /* ========================================================
-   Authentication & Interactive Controls
+   Authentication Script (admin / Marketing@2026)
    ======================================================== */
 
-// SHA-256 helper function (accessible in browser console via sha("user:pass"))
+// SHA-256 generator helper
 async function sha(s) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
   return Array.from(new Uint8Array(buf))
@@ -10,8 +10,7 @@ async function sha(s) {
     .join("");
 }
 
-// Authorized credentials
-// Precomputed SHA-256 for 'admin:Marketing@2026'
+// Authorized credentials list
 const USERS = [
   "admin:Marketing@2026",
   "6f47aa2810a08e0dae95454fae896434458f2d5e7774ae72bb83fc7ea9d46083"
@@ -21,14 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginSection = document.getElementById("login");
   const appSection = document.getElementById("app");
   const uInput = document.getElementById("u");
-  const pInput = document.getElementById("p");
+  const pInput = document.getElementById("pass") || document.getElementById("p");
   const goBtn = document.getElementById("go");
   const errText = document.getElementById("err");
   const eyeBtn = document.getElementById("eye");
   const outBtn = document.getElementById("out");
   const box = document.querySelector(".box");
 
-  // 1. Password Show/Hide Toggle Button
+  // Show/Hide password toggle
   if (eyeBtn && pInput) {
     eyeBtn.addEventListener("click", () => {
       if (pInput.type === "password") {
@@ -42,20 +41,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. Check if user is already logged in
+  // Auto-login if session exists
   if (sessionStorage.getItem("auth") === "1") {
     loginSection.hidden = true;
     appSection.hidden = false;
   }
 
-  // 3. Login Attempt Function
+  // Login handler
   async function attemptLogin() {
     errText.textContent = "";
     const u = uInput.value.trim().toLowerCase();
     const p = pInput.value;
 
     if (!u || !p) {
-      errText.textContent = "Please enter both username and password.";
+      errText.textContent = "Please enter username and password.";
       shake();
       return;
     }
@@ -66,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const combo = `${u}:${p}`;
       const hashed = await sha(combo);
 
-      // Verify either raw pair or hash match
+      // Check default credentials or hash list
       const isValid =
         (u === "admin" && p === "Marketing@2026") ||
         USERS.includes(combo) ||
@@ -80,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
           loginSection.hidden = true;
           appSection.hidden = false;
         } else {
-          errText.textContent = "Invalid username or password.";
+          errText.textContent = "Wrong username or password.";
           shake();
         }
       }, 350);
@@ -94,12 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function shake() {
     if (box) {
       box.classList.remove("shake");
-      void box.offsetWidth; // trigger reflow
+      void box.offsetWidth;
       box.classList.add("shake");
     }
   }
 
-  // 4. Attach Listeners
+  // Attach login button & Enter key press
   if (goBtn) goBtn.addEventListener("click", attemptLogin);
 
   [uInput, pInput].forEach((input) => {
@@ -110,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 5. Sign Out
+  // Sign out button
   if (outBtn) {
     outBtn.addEventListener("click", () => {
       sessionStorage.removeItem("auth");
