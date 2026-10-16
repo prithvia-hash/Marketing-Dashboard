@@ -26,7 +26,7 @@ h1 { margin: 0; font-size: 22px; }
 h2 { font-size: 15px; margin: 0 0 10px; }
 .sub { color: var(--mut); font-size: 13px; }
 
-/* Dashboard Header & Controls */
+/* Dashboard Header & Navigation */
 header { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; padding: 14px 20px; background: var(--card); border-bottom: 1px solid var(--line); }
 header .act { display: flex; gap: 8px; flex-wrap: wrap; }
 header .act button { background: #8a94a0; border: 0; padding: 8px 14px; border-radius: 8px; color: #fff; cursor: pointer; }
@@ -35,7 +35,7 @@ nav { display: flex; gap: 4px; flex-wrap: wrap; }
 nav button { background: none; border: 0; color: var(--ink); padding: 8px 14px; border-radius: 8px; cursor: pointer; font: inherit; }
 nav button.on { background: var(--acc); color: #fff; }
 
-/* Dashboard Grid & Cards */
+/* Dashboard Views & KPI Cards */
 #view { padding: 20px; max-width: 1400px; margin: auto; display: grid; gap: 16px; }
 .kpis { display: grid; grid-template-columns: 90px repeat(4, 1fr); gap: 10px; align-items: center; }
 .k { padding: 12px 14px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
@@ -64,7 +64,7 @@ tfoot td { font-weight: 700; }
 @media print { header .act, nav { display: none; } }
 
 /* ========================================================
-   LOGIN PAGE STYLES
+   LOGIN PAGE
    ======================================================== */
 #login { min-height: 100vh; background: #000; color: #fff; }
 .split {
@@ -103,7 +103,7 @@ tfoot td { font-weight: 700; }
 .fld { display: grid; gap: 7px; margin-bottom: 14px; }
 .fld label { font-size: 12px; color: #aab8e0; font-weight: 500; }
 
-.in { position: relative; display: flex; align-items: center; }
+.in { position: relative; display: flex; align-items: center; width: 100%; }
 .in svg {
   position: absolute;
   left: 14px;
@@ -117,8 +117,10 @@ tfoot td { font-weight: 700; }
   z-index: 3;
 }
 
-/* Crisp White Typing on Dark Navy Inputs */
+/* Input Styles */
 .in input {
+  position: relative;
+  z-index: 2;
   width: 100%;
   height: 48px;
   padding: 0 65px 0 42px;
@@ -127,28 +129,42 @@ tfoot td { font-weight: 700; }
   background-color: #0c1840 !important;
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
-  caret-color: #4d86ff !important;
+  caret-color: #ffffff !important;
   font-family: system-ui, -apple-system, sans-serif !important;
-  font-size: 14px;
+  font-size: 15px;
+  outline: none;
   transition: 0.25s;
 }
 
-.in input[type="password"] {
-  letter-spacing: 3px;
+/* Password dot mask (cannot be blocked by browsers) */
+.in input.pass-dot {
+  -webkit-text-security: disc !important;
+  letter-spacing: 3px !important;
 }
 
-.in input::placeholder { color: #6f82bd; letter-spacing: normal; }
+/* When Show button is clicked to reveal text */
+.in input.pass-dot.show-plain {
+  -webkit-text-security: none !important;
+  letter-spacing: normal !important;
+}
+
+.in input::placeholder {
+  color: #6f82bd;
+  -webkit-text-security: none !important;
+  letter-spacing: normal !important;
+}
+
 .in input:focus {
-  outline: 0;
   border-color: #4d86ff;
   background-color: #050f3c !important;
   box-shadow: 0 0 0 1px #4d86ff, 0 0 20px 2px #2f6bff88;
 }
 
-/* Eye Show/Hide Button */
+/* Eye Show/Hide button */
 .eye {
   position: absolute;
   right: 10px;
+  z-index: 4;
   padding: 6px 10px;
   background: transparent;
   border: 0;
@@ -157,7 +173,6 @@ tfoot td { font-weight: 700; }
   font-weight: 600;
   border-radius: 6px;
   cursor: pointer;
-  z-index: 4;
 }
 .eye:hover { color: #ffffff; background: #ffffff18; }
 
