@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Marketing Expenditure FY 2026-27</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
+<!-- Login Screen -->
 <section id="login">
   <div class="split">
-    <!-- Left artwork banner -->
+    <!-- Left Art Banner -->
     <aside class="art" aria-hidden="true">
       <svg viewBox="0 0 460 600" preserveAspectRatio="xMidYMid slice" class="dunes">
         <defs>
@@ -59,7 +60,7 @@
       </div>
     </aside>
 
-    <!-- Right login form -->
+    <!-- Right Form -->
     <div class="formside">
       <form class="box" onsubmit="return false">
         <small class="kick">Login to your account</small>
@@ -75,11 +76,11 @@
         </div>
 
         <div class="fld">
-          <label for="p">Password</label>
-          <div class="in">
-            <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
-            <input id="p" type="password" placeholder="Enter your password" autocomplete="current-password">
-            <button type="button" id="eye" class="eye" aria-label="Toggle password visibility">Show</button>
+          <label for="pass">Password</label>
+          <div class="in" style="position:relative;">
+            <svg viewBox="0 0 24 24" style="pointer-events:none; z-index:3;"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
+            <input id="pass" type="password" placeholder="Enter your password" autocomplete="current-password" style="position:relative; z-index:2; pointer-events:auto;">
+            <button type="button" id="eye" class="eye" style="position:absolute; right:10px; z-index:4; cursor:pointer;" aria-label="Toggle password visibility">Show</button>
           </div>
         </div>
 
@@ -91,7 +92,7 @@
   </div>
 </section>
 
-<!-- Dashboard view (hidden until login) -->
+<!-- Dashboard Main Area (Revealed on Sign in) -->
 <main id="app" hidden>
   <header>
     <div>
