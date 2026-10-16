@@ -4,11 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Marketing Expenditure FY 2026-27</title>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
-<!-- Login Screen -->
 <section id="login">
   <div class="split">
     <!-- Left Art Banner -->
@@ -60,7 +59,7 @@
       </div>
     </aside>
 
-    <!-- Right Form -->
+    <!-- Right Login Form -->
     <div class="formside">
       <form class="box" onsubmit="return false">
         <small class="kick">Login to your account</small>
@@ -71,16 +70,16 @@
           <label for="u">Username</label>
           <div class="in">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
-            <input id="u" placeholder="Enter your username" autocomplete="username">
+            <input id="u" type="text" placeholder="Enter your username" autocomplete="off" spellcheck="false">
           </div>
         </div>
 
         <div class="fld">
           <label for="pass">Password</label>
-          <div class="in" style="position:relative;">
-            <svg viewBox="0 0 24 24" style="pointer-events:none; z-index:3;"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
-            <input id="pass" type="password" placeholder="Enter your password" autocomplete="current-password" style="position:relative; z-index:2; pointer-events:auto;">
-            <button type="button" id="eye" class="eye" style="position:absolute; right:10px; z-index:4; cursor:pointer;" aria-label="Toggle password visibility">Show</button>
+          <div class="in">
+            <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
+            <input id="pass" type="text" class="pass-dot" placeholder="Enter your password" autocomplete="off" spellcheck="false">
+            <button type="button" id="eye" class="eye" aria-label="Toggle password visibility">Show</button>
           </div>
         </div>
 
@@ -92,7 +91,7 @@
   </div>
 </section>
 
-<!-- Dashboard Main Area (Revealed on Sign in) -->
+<!-- Dashboard Main Area (Hidden until logged in) -->
 <main id="app" hidden>
   <header>
     <div>
