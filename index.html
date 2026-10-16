@@ -1,43 +1,88 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Marketing Expenditure FY 2026-27</title>
-<link rel="stylesheet" href="style.css">
-</head><body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marketing Expenditure FY 2026-27</title>
+  <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
 <section id="login">
   <div class="split">
+    <!-- Left artwork banner -->
     <aside class="art" aria-hidden="true">
       <svg viewBox="0 0 460 600" preserveAspectRatio="xMidYMid slice" class="dunes">
         <defs>
-          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050a22"/><stop offset=".3" stop-color="#16348a"/><stop offset=".42" stop-color="#8ea2cf"/><stop offset=".5" stop-color="#2a3f86"/></linearGradient>
-          <linearGradient id="d1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d6d0df"/><stop offset=".5" stop-color="#7a7595"/><stop offset="1" stop-color="#1c2552"/></linearGradient>
-          <linearGradient id="d2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2a78"/><stop offset="1" stop-color="#070d33"/></linearGradient>
-          <linearGradient id="d3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a3d99"/><stop offset="1" stop-color="#0a1240"/></linearGradient>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#050a22"/>
+            <stop offset=".3" stop-color="#16348a"/>
+            <stop offset=".42" stop-color="#8ea2cf"/>
+            <stop offset=".5" stop-color="#2a3f86"/>
+          </linearGradient>
+          <linearGradient id="d1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#d6d0df"/>
+            <stop offset=".5" stop-color="#7a7595"/>
+            <stop offset="1" stop-color="#1c2552"/>
+          </linearGradient>
+          <linearGradient id="d2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1b2a78"/>
+            <stop offset="1" stop-color="#070d33"/>
+          </linearGradient>
+          <linearGradient id="d3" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2a3d99"/>
+            <stop offset="1" stop-color="#0a1240"/>
+          </linearGradient>
           <filter id="glow"><feGaussianBlur stdDeviation="3"/></filter>
         </defs>
         <rect width="460" height="600" fill="url(#sky)"/>
-        <g class="stars" fill="#fff"><circle cx="55" cy="30" r="1.2"/><circle cx="360" cy="95" r="1.4"/><circle cx="448" cy="135" r="1"/><circle cx="210" cy="60" r="1"/><circle cx="120" cy="110" r=".9"/></g>
+        <g class="stars" fill="#fff">
+          <circle cx="55" cy="30" r="1.2"/>
+          <circle cx="360" cy="95" r="1.4"/>
+          <circle cx="448" cy="135" r="1"/>
+          <circle cx="210" cy="60" r="1"/>
+          <circle cx="120" cy="110" r=".9"/>
+        </g>
         <path d="M150 182 L320 162 C400 160 440 190 460 205 L460 340 C380 290 250 235 150 182Z" fill="url(#d2)"/>
         <path d="M150 182 C250 235 380 290 460 340" fill="none" stroke="#2f6bff" stroke-width="5" filter="url(#glow)"/>
         <path d="M150 182 C250 235 380 290 460 340" fill="none" stroke="#7aa2ff" stroke-width="1.4"/>
-        <g class="drift"><path d="M0 330 C50 245 130 195 210 182 C275 190 330 235 345 272 C305 300 240 316 170 328 C110 338 50 342 0 362Z" fill="url(#d1)"/>
-        <path d="M210 182 C275 190 330 235 345 272" fill="none" stroke="#e9e5f2" stroke-width="2" opacity=".7"/></g>
+        <g class="drift">
+          <path d="M0 330 C50 245 130 195 210 182 C275 190 330 235 345 272 C305 300 240 316 170 328 C110 338 50 342 0 362Z" fill="url(#d1)"/>
+          <path d="M210 182 C275 190 330 235 345 272" fill="none" stroke="#e9e5f2" stroke-width="2" opacity=".7"/>
+        </g>
         <path d="M0 600 L0 395 C110 372 270 378 460 470 L460 600Z" fill="url(#d3)"/>
         <path d="M0 600 L0 470 C140 450 300 480 460 540 L460 600Z" fill="#0a1347" opacity=".8"/>
       </svg>
-      <div class="copy"><h2>Marketing spend,<br>clearly seen</h2><p>Yapral and Kompally projects in one dashboard</p></div>
+      <div class="copy">
+        <h2>Marketing spend,<br>clearly seen</h2>
+        <p>Yapral and Kompally projects in one dashboard</p>
+      </div>
     </aside>
+
+    <!-- Right login form -->
     <div class="formside">
       <form class="box" onsubmit="return false">
         <small class="kick">Login to your account</small>
-        <h1>Welcome Back!</h1><p class="sub">Enter your username and password</p>
-        <div class="fld"><label for="u">Username</label>
-          <div class="in"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
-          <input id="u" placeholder="Enter your username" autocomplete="username"></div></div>
-        <div class="fld"><label for="p">Password</label>
-          <div class="in"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
-          <input id="p" type="password" placeholder="Enter your password" autocomplete="current-password">
-          <button type="button" id="eye" class="eye" aria-label="Show password">Show</button></div></div>
+        <h1>Welcome Back!</h1>
+        <p class="sub">Enter your username and password</p>
+
+        <div class="fld">
+          <label for="u">Username</label>
+          <div class="in">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+            <input id="u" placeholder="Enter your username" autocomplete="username">
+          </div>
+        </div>
+
+        <div class="fld">
+          <label for="p">Password</label>
+          <div class="in">
+            <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
+            <input id="p" type="password" placeholder="Enter your password" autocomplete="current-password">
+            <button type="button" id="eye" class="eye" aria-label="Toggle password visibility">Show</button>
+          </div>
+        </div>
+
         <a href="#" class="forgot" onclick="document.getElementById('err').textContent='Contact your administrator to reset your password.';return false">Forgot Password?</a>
         <button id="go" type="button"><span>Sign in</span><i class="spin"></i></button>
         <p id="err" role="alert"></p>
@@ -45,17 +90,32 @@
     </div>
   </div>
 </section>
+
+<!-- Dashboard view (hidden until login) -->
 <main id="app" hidden>
   <header>
-    <div><h1>Marketing Expenditure</h1><span class="sub">2026 - 2027 · till Sep-26</span></div>
+    <div>
+      <h1>Marketing Expenditure</h1>
+      <span class="sub">2026 - 2027 · till Sep-26</span>
+    </div>
     <nav id="tabs"></nav>
-    <div class="act"><select id="reg"><option value="all">All regions</option><option>Yapral</option><option>Kompally</option></select>
-      <button onclick="print()">Download</button><button onclick="location.reload()">Reset</button><button id="out">Sign out</button></div>
+    <div class="act">
+      <select id="reg">
+        <option value="all">All regions</option>
+        <option>Yapral</option>
+        <option>Kompally</option>
+      </select>
+      <button onclick="print()">Download</button>
+      <button onclick="location.reload()">Reset</button>
+      <button id="out">Sign out</button>
+    </div>
   </header>
   <div id="view"></div>
 </main>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="auth.js"></script>
 <script src="data.js"></script>
 <script src="app.js"></script>
-</body></html>
+</body>
+</html>
